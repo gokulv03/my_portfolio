@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Send, MapPin, Mail, Phone, Loader2, Sparkles } from 'lucide-react';
+import { Send, MapPin, Mail, Phone, Loader2 } from 'lucide-react';
 import MagneticButton from './MagneticButton';
 import { useState } from 'react';
 
@@ -39,7 +39,7 @@ const Contact = () => {
       setSubmitStatus('success');
       setFormData({ name: '', email: '', message: '' });
       setTimeout(() => setSubmitStatus(null), 5000);
-    } catch (error) {
+    } catch {
       setSubmitStatus('error');
       setTimeout(() => setSubmitStatus(null), 5000);
     } finally {

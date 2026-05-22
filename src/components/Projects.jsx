@@ -136,7 +136,7 @@ const Projects = () => {
 
       <motion.div layout className="grid grid-cols-1 md:grid-cols-2 gap-6 relative">
         <AnimatePresence mode="popLayout">
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <ProjectCard key={project.id || project.name} project={project} />
           ))}
         </AnimatePresence>

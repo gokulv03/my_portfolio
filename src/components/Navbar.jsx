@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { Briefcase as Linkedin, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);

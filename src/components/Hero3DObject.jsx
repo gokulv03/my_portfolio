@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Float, Wireframe, Icosahedron } from '@react-three/drei';
+import { Float, Icosahedron } from '@react-three/drei';
 
 function AnimatedGeometry() {
   const meshRef = useRef(null);
