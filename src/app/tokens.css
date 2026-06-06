@@ -30,7 +30,7 @@
   --text-2xl:  2.25rem;
   --text-3xl:  3.25rem;
   --text-4xl:  clamp(2.75rem, 7vw, 5.5rem);
-  --text-display: clamp(3.25rem, 15vw, 13.5rem);  /* marquee hero name */
+  --text-display: clamp(2.25rem, 10.5vw, 9.5rem);  /* marquee hero name — sized so "Vemulapalli" fits one line */
 
   /* ---- Spacing (4pt) ---- */
   --space-3xs: 0.25rem;

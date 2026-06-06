@@ -1,8 +1,7 @@
 'use client';
 
 import { motion, type Variants } from 'framer-motion';
-import { GraduationCap, ArrowRight } from 'lucide-react';
-import Image from 'next/image';
+import { GraduationCap, ArrowRight, ImageIcon } from 'lucide-react';
 
 const reveal: Variants = {
   hidden: { opacity: 0, y: 20 },
@@ -79,13 +78,10 @@ const About = () => {
         {/* Portrait + forward list */}
         <div className="lg:col-span-5 order-1 lg:order-2 flex flex-col gap-8">
           <figure className="card-hard overflow-hidden">
-            <Image
-              src="/profile.jpeg"
-              alt="Gokul Vemulapalli"
-              width={600}
-              height={600}
-              className="w-full aspect-square object-cover grayscale contrast-[1.05] hover:grayscale-0 transition-[filter] duration-500"
-            />
+            <div className="w-full aspect-square bg-paper-2 flex flex-col items-center justify-center gap-3 text-ink-3">
+              <ImageIcon className="w-12 h-12" strokeWidth={1.5} />
+              <span className="font-mono text-xs uppercase tracking-[0.12em]">Photo</span>
+            </div>
             <figcaption className="font-mono text-xs uppercase tracking-[0.12em] text-ink-2 border-t-2 border-ink px-4 py-3 flex items-center justify-between">
               <span>Gokul Vemulapalli</span>
               <span className="text-accent">EE · MSc</span>
