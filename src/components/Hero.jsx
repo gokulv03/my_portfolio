@@ -1,95 +1,98 @@
 import { motion } from 'framer-motion';
-import { ChevronDown, Download, MapPin, Mail, Phone, ExternalLink, Sparkles } from 'lucide-react';
-import MagneticButton from './MagneticButton';
-import Hero3DObject from './Hero3DObject';
+import { ArrowDown, Download, MapPin, Mail, Phone, ArrowUpRight } from 'lucide-react';
+
+const TECH = ["C / C++", "MATLAB", "SIMULINK", "PYTHON", "STM32", "POWER ELECTRONICS", "CONTROL SYSTEMS", "ESP32", "GIT", "LABVIEW"];
 
 const Hero = () => {
-  const staggerContainer = {
-    hidden: { opacity: 0 }, 
-    visible: { 
-      opacity: 1, 
-      transition: { 
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      } 
-    }
+  const container = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
   };
-
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] } },
   };
 
   return (
-    <>
-      <section className="relative flex items-center min-h-[100svh] pt-32 lg:pt-40 pb-20">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
-        
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center relative z-10 w-full">
-          <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="max-w-3xl">
-            <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl lg:text-7xl xl:text-8xl font-extrabold tracking-tighter mb-6 mt-4">
-              Hi, I&apos;m <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-emerald-400 to-teal-400">Gokul</span> Vemulapalli
-            </motion.h1>
-            
-            <motion.p variants={fadeInUp} className="text-xl md:text-2xl text-slate-400 mb-10 leading-relaxed max-w-2xl font-light">
-              M.Sc. Electrical Engineering student specializing in Automation Technology. Passionate about bridging theoretical modeling with robust hardware deployments in <span className="text-slate-200 font-medium">dynamic control systems</span> and <span className="text-slate-200 font-medium">power electronics</span>.
-            </motion.p>
-            
-            <motion.div variants={fadeInUp} className="flex flex-wrap gap-5 items-center z-20">
-              <MagneticButton as="a" href="#projects" className="px-8 py-3.5 rounded-xl bg-white text-slate-900 font-semibold hover:bg-emerald-400 hover:shadow-[0_0_30px_rgba(52,211,153,0.3)] transition-colors duration-300 flex items-center gap-2">
-                Explore Projects <ChevronDown className="w-4 h-4" />
-              </MagneticButton>
-              <MagneticButton as="a" href="#" className="px-8 py-3.5 rounded-xl border border-white/10 bg-white/5 text-slate-200 font-semibold hover:bg-white/10 transition-colors duration-300 flex items-center gap-2 group backdrop-blur-sm cursor-pointer shadow-[0_0_15px_rgba(59,130,246,0.05)]">
-                Download Resume <Download className="w-4 h-4 text-blue-400 group-hover:text-blue-300 transition-colors" />
-              </MagneticButton>
-            </motion.div>
-            
-            <motion.div variants={fadeInUp} className="flex flex-wrap gap-8 mt-16 text-sm text-slate-400 border-t border-white/5 pt-8">
-              <span className="flex items-center gap-2.5 hover:text-white transition-colors cursor-default"><MapPin className="w-4 h-4 text-blue-400"/> Nürnberg, Germany</span>
-              <a href="mailto:gokulv0331@gmail.com" className="flex items-center gap-2.5 hover:text-white transition-colors"><Mail className="w-4 h-4 text-emerald-400"/> gokulv0331@gmail.com</a>
-              <span className="flex items-center gap-2.5 hover:text-white transition-colors cursor-default"><Phone className="w-4 h-4 text-teal-400"/> +49-15510176813</span>
-              <a href="https://www.linkedin.com/in/gokul-vemulapalli" target="_blank" rel="noreferrer" className="flex items-center gap-2.5 hover:text-blue-400 transition-colors group">
-                <ExternalLink className="w-4 h-4 text-blue-400 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform"/> LinkedIn
-              </a>
-              <a href="https://github.com/gokulv03" target="_blank" rel="noreferrer" className="flex items-center gap-2.5 hover:text-white transition-colors group">
-                <ExternalLink className="w-4 h-4 text-slate-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform"/> GitHub
-              </a>
-            </motion.div>
-          </motion.div>
-
-          {/* Abstract/Terminal Column (Keeping it simple and thematic) */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
-            className="relative hidden lg:flex justify-center items-center w-full -mt-24 h-[500px]"
-          >
-            <Hero3DObject />
-          </motion.div>
+    <section id="top" className="relative pt-12 sm:pt-16">
+      <div className="mx-auto w-full max-w-[1400px] px-5 sm:px-8 lg:px-12">
+        {/* Top meta line */}
+        <div className="flex flex-wrap items-center justify-between gap-y-2 border-b border-hairline pb-3 mb-8 sm:mb-10">
+          <span className="tag">Electrical Engineer — Automation</span>
+          <span className="tag flex items-center gap-2">
+            <MapPin className="w-3.5 h-3.5 text-accent" /> Nürnberg, DE · MSc EE
+          </span>
         </div>
-      </section>
 
-      {/* INFINITE TECH MARQUEE */}
-      <section className="py-10 border-y border-white/5 bg-[#050a15]/30 overflow-hidden flex relative -mx-6 md:-mx-12 lg:-mx-24 w-screen">
-        <div className="absolute inset-y-0 left-0 w-24 sm:w-40 bg-gradient-to-r from-[#030712] to-transparent z-10 pointer-events-none"></div>
-        <div className="absolute inset-y-0 right-0 w-24 sm:w-40 bg-gradient-to-l from-[#030712] to-transparent z-10 pointer-events-none"></div>
-        
+        <motion.div initial="hidden" animate="visible" variants={container}>
+          {/* Marquee name — fills the fold */}
+          <motion.h1
+            variants={item}
+            className="font-display font-black uppercase leading-[0.84] tracking-[-0.03em] text-ink"
+            style={{ fontSize: 'var(--text-display)' }}
+          >
+            <span className="block">Gokul</span>
+            <span className="block">
+              Vemu<span className="text-accent">la</span>palli
+            </span>
+          </motion.h1>
+
+          <motion.div variants={item} className="mt-8 sm:mt-10 grid lg:grid-cols-12 gap-6 lg:gap-10 items-end">
+            <p className="lg:col-span-7 font-body text-lg sm:text-xl text-ink-2 leading-relaxed max-w-2xl">
+              M.Sc. Electrical Engineering student specializing in Automation Technology.
+              I bridge theoretical modeling with robust hardware deployments across{' '}
+              <span className="text-ink font-semibold">dynamic control systems</span> and{' '}
+              <span className="text-ink font-semibold">power electronics</span>.
+            </p>
+
+            <div className="lg:col-span-5 flex flex-wrap gap-3 lg:justify-end">
+              <a href="#work" className="slab">
+                Explore Work <ArrowDown className="w-4 h-4" />
+              </a>
+              <a href="#" className="slab-outline">
+                Résumé <Download className="w-4 h-4" />
+              </a>
+            </div>
+          </motion.div>
+
+          {/* Contact index row */}
+          <motion.div
+            variants={item}
+            className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t-2 border-ink"
+          >
+            <a href="mailto:gokulv0331@gmail.com" className="group flex items-center gap-3 py-4 sm:pr-6 border-b sm:border-b-0 sm:border-r border-hairline font-mono text-sm text-ink hover:text-accent transition-colors">
+              <Mail className="w-4 h-4 shrink-0 text-accent" />
+              <span className="truncate">gokulv0331@gmail.com</span>
+            </a>
+            <span className="flex items-center gap-3 py-4 sm:px-6 border-b sm:border-b-0 sm:border-r border-hairline font-mono text-sm text-ink-2">
+              <Phone className="w-4 h-4 shrink-0 text-accent" /> +49 15510176813
+            </span>
+            <a href="https://www.linkedin.com/in/gokul-vemulapalli" target="_blank" rel="noreferrer" className="flex items-center justify-between gap-2 py-4 sm:px-6 border-b sm:border-b-0 sm:border-r border-hairline font-mono text-sm text-ink hover:text-accent transition-colors">
+              LinkedIn <ArrowUpRight className="w-4 h-4 shrink-0" />
+            </a>
+            <a href="https://github.com/gokulv03" target="_blank" rel="noreferrer" className="flex items-center justify-between gap-2 py-4 sm:pl-6 font-mono text-sm text-ink hover:text-accent transition-colors">
+              GitHub <ArrowUpRight className="w-4 h-4 shrink-0" />
+            </a>
+          </motion.div>
+        </motion.div>
+      </div>
+
+      {/* Brutalist tech marquee — full bleed, hard rules */}
+      <div className="mt-16 border-y-[3px] border-ink bg-paper-2 overflow-hidden py-5">
         <div className="flex w-max animate-marquee hover:[animation-play-state:paused]">
-          {[...Array(2)].map((_, loopIdx) => (
-            <div key={loopIdx} className="flex shrink-0 items-center gap-12 sm:gap-24 px-6 sm:px-12">
-              {["C/C++", "MATLAB", "SIMULINK", "PYTHON", "STM32", "POWER ELECTRONICS", "CONTROL SYSTEMS", "ESP32", "GIT", "LABVIEW"].map((tech, idx) => (
-                <div key={idx} className="flex items-center gap-12 sm:gap-24">
-                  <span className="text-2xl sm:text-4xl font-black tracking-widest text-slate-800 hover:text-emerald-400 hover:scale-110 transition-all duration-300 cursor-default">
-                    {tech}
-                  </span>
-                  <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-slate-800/80" />
-                </div>
+          {[...Array(2)].map((_, loop) => (
+            <div key={loop} className="flex shrink-0 items-center">
+              {TECH.map((t, i) => (
+                <span key={i} className="flex items-center font-mono font-bold uppercase tracking-[0.1em] text-ink-2 text-base sm:text-xl px-6 sm:px-10">
+                  {t}
+                  <span className="ml-12 sm:ml-20 text-accent" aria-hidden="true">/</span>
+                </span>
               ))}
             </div>
           ))}
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
 

@@ -12,6 +12,13 @@ dist
 dist-ssr
 *.local
 
+# Local agent tooling / debug artifacts
+.claude/
+.agents/
+.hallmark/
+skills-lock.json
+build_error*.txt
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

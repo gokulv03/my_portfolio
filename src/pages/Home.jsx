@@ -10,13 +10,15 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen w-full overflow-hidden px-6 md:px-12 lg:px-24 pb-20 max-w-7xl mx-auto text-white">
+      <main className="w-full text-ink">
         <Hero />
-        <About />
-        <Projects />
-        <Experience />
-        <Skills />
-        <Contact />
+        <div className="mx-auto w-full max-w-[1400px] px-5 sm:px-8 lg:px-12">
+          <About />
+          <Projects />
+          <Experience />
+          <Skills />
+          <Contact />
+        </div>
       </main>
     </>
   );

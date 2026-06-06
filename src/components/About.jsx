@@ -1,95 +1,100 @@
 import { motion } from 'framer-motion';
-import { GraduationCap, Sparkles, ChevronRight } from 'lucide-react';
+import { GraduationCap, ArrowRight } from 'lucide-react';
 import profileImg from '../assets/profile.jpeg';
 
-const About = () => {
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
-  };
+const reveal = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] } },
+};
 
+const TAGS = ["Control Systems", "Embedded", "Power Electronics", "Hardware", "Open to Work"];
+const FORWARD = [
+  "Thesis positions in dynamic control",
+  "Hardware-in-the-loop (HIL) simulations",
+  "Working with electromagnetic actuators",
+  "Developing real-time C/C++ firmware",
+];
+
+const About = () => {
   return (
-    <motion.section 
+    <motion.section
       id="about"
-      initial="hidden" 
-      whileInView="visible" 
-      viewport={{ once: true, margin: "-100px" }} 
-      variants={fadeInUp}
-      className="py-16"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-80px" }}
+      variants={reveal}
+      className="py-20 sm:py-28 border-t-2 border-ink"
     >
-      <div className="grid md:grid-cols-2 gap-16 items-center">
-        <div className="order-2 md:order-1">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="h-px w-12 bg-blue-500/50"></div>
-            <h2 className="text-3xl font-bold tracking-tight text-white">About Me</h2>
+      {/* Section head — number stacked above heading (same column) */}
+      <header className="mb-12">
+        <span className="section-num">00 — PROFILE</span>
+        <h2 className="mt-2 font-display font-black uppercase text-4xl sm:text-5xl tracking-tight text-ink"
+            style={{ fontSize: 'var(--text-4xl)' }}>
+          About
+        </h2>
+      </header>
+
+      <div className="grid lg:grid-cols-12 gap-10 lg:gap-12">
+        {/* Prose */}
+        <div className="lg:col-span-7 order-2 lg:order-1">
+          <div className="flex flex-wrap gap-3 mb-8">
+            <span className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.1em] px-3 py-2 border-2 border-ink text-ink">
+              <GraduationCap className="w-4 h-4 text-accent" />
+              M.Sc. EE @ Deggendorf
+            </span>
+            <span className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.1em] px-3 py-2 border-2 border-accent bg-accent text-accent-ink">
+              Available for Thesis
+            </span>
           </div>
-          
-          <div className="flex flex-wrap gap-3 mb-6">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 text-sm font-medium border rounded-xl border-blue-500/20 bg-blue-500/10 text-blue-300">
-              <GraduationCap className="w-4 h-4 text-emerald-400" />
-              M.Sc. EE @ Deggendorf Institute of Technology
-            </div>
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 text-sm font-medium border rounded-xl border-emerald-500/20 bg-emerald-500/10 text-emerald-300 shadow-[0_0_15px_rgba(52,211,153,0.05)]">
-              <Sparkles className="w-4 h-4" />
-              Available for Thesis / Opportunities
-            </div>
-          </div>
-          
-          <p className="text-slate-400 leading-relaxed mb-6 font-light text-lg">
-            Hi! I&apos;m an M.Sc. Electrical Engineering student specializing in Automation Technology at Deggendorf Institute of Technology, Germany. I strongly believe in bridging the gap between complex theoretical modeling and practical, robust hardware deployments.
+
+          <p className="font-body text-lg text-ink-2 leading-relaxed mb-6 max-w-2xl">
+            I&apos;m an M.Sc. Electrical Engineering student specializing in Automation
+            Technology at Deggendorf Institute of Technology, Germany. I believe in closing
+            the gap between complex theoretical modeling and practical, robust hardware
+            deployments.
           </p>
-          <p className="text-slate-400 leading-relaxed mb-8 font-light text-lg">
-            Currently leaning into <span className="text-slate-200 font-medium">Dynamic Control Methods</span> & building a solid foundation in <span className="text-slate-200 font-medium">Power Electronics</span>. Always open to connecting over new technologies, embedded systems, or interesting hardware projects!
+          <p className="font-body text-lg text-ink-2 leading-relaxed mb-8 max-w-2xl">
+            Currently leaning into <span className="text-ink font-semibold">Dynamic Control
+            Methods</span> and building a solid foundation in <span className="text-ink font-semibold">
+            Power Electronics</span>. Always open to connecting over embedded systems, control,
+            or interesting hardware projects.
           </p>
+
           <div className="flex flex-wrap gap-2.5">
-            {["#ControlSystems", "#Embedded", "#PowerElectronics", "#Hardware", "#OpenToWork"].map((tag) => (
-              <span key={tag} className="text-xs px-4 py-1.5 bg-blue-500/10 border border-blue-500/20 rounded-full text-blue-300 font-medium hover:bg-blue-500/20 transition-colors cursor-default">{tag}</span>
+            {TAGS.map((tag) => (
+              <span key={tag} className="font-mono text-xs uppercase tracking-[0.08em] px-3 py-1.5 border border-ink text-ink-2 hover:text-accent hover:border-accent transition-colors">
+                {tag}
+              </span>
             ))}
           </div>
         </div>
-        
-        <div className="order-1 md:order-2 flex flex-col gap-8">
-          <div className="relative w-full aspect-square max-w-[280px] mx-auto rounded-[2rem] overflow-hidden p-[2px] group shadow-[0_0_40px_rgba(59,130,246,0.15)]">
-            {/* Glowing Animated Border */}
-            <div className="absolute inset-[-50%] bg-[conic-gradient(from_0deg,transparent_0_340deg,#3b82f6_360deg)] opacity-70 group-hover:opacity-100 transition-opacity duration-500 animate-[spin_4s_linear_infinite]" />
-            <div className="absolute inset-[-50%] bg-[conic-gradient(from_180deg,transparent_0_340deg,#10b981_360deg)] opacity-70 group-hover:opacity-100 transition-opacity duration-500 animate-[spin_4s_linear_infinite]" />
-            
-            <div className="relative w-full h-full rounded-[1.85rem] overflow-hidden bg-[#0a0f1c]">
-              {/* The Vignette/Blend Mask */}
-              <div className="absolute inset-0 z-10 pointer-events-none" style={{ 
-                background: 'radial-gradient(circle at 50% 40%, transparent 35%, #0a0f1c 85%)'
-              }} />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1c] via-transparent to-transparent z-10 opacity-90 pointer-events-none" />
-              <div className="absolute inset-0 shadow-[inset_0_0_60px_20px_#0a0f1c] z-10 pointer-events-none" />
-              
-              <img 
-                src={profileImg} 
-                alt="Gokul Vemulapalli" 
-                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" 
-              />
-            </div>
-          </div>
 
-          <div className="relative p-1 rounded-2xl bg-gradient-to-b from-blue-500/20 via-emerald-500/10 to-transparent">
-            <div className="bg-[#0a0f1c] rounded-xl p-8 h-full border border-white/5 relative z-10">
-              <h3 className="text-xl font-semibold mb-6 flex items-center gap-2 text-white">
-                <Sparkles className="w-5 h-5 text-emerald-400" />
-                Looking forward to:
-              </h3>
-              <ul className="space-y-4 text-slate-400">
-                {[
-                  "Thesis positions in dynamic control",
-                  "Hardware-in-the-loop (HIL) simulations",
-                  "Working with electromagnetic actuators",
-                  "Developing real-time C/C++ firmware"
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 group">
-                    <ChevronRight className="w-5 h-5 text-blue-400 shrink-0 group-hover:translate-x-1 transition-transform" /> 
-                    <span className="group-hover:text-slate-200 transition-colors">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+        {/* Portrait + forward list */}
+        <div className="lg:col-span-5 order-1 lg:order-2 flex flex-col gap-8">
+          <figure className="card-hard overflow-hidden">
+            <img
+              src={profileImg}
+              alt="Gokul Vemulapalli"
+              className="w-full aspect-square object-cover grayscale contrast-[1.05] hover:grayscale-0 transition-[filter] duration-500"
+            />
+            <figcaption className="font-mono text-xs uppercase tracking-[0.12em] text-ink-2 border-t-2 border-ink px-4 py-3 flex items-center justify-between">
+              <span>Gokul Vemulapalli</span>
+              <span className="text-accent">EE · MSc</span>
+            </figcaption>
+          </figure>
+
+          <div className="card-hard p-6">
+            <h3 className="font-mono text-sm uppercase tracking-[0.12em] text-ink mb-5 pb-3 border-b-2 border-ink">
+              Looking forward to
+            </h3>
+            <ul className="flex flex-col">
+              {FORWARD.map((it, i) => (
+                <li key={i} className="group flex items-start gap-3 py-3 border-b border-hairline last:border-b-0 font-body text-ink-2">
+                  <ArrowRight className="w-4 h-4 mt-1 shrink-0 text-accent group-hover:translate-x-1 transition-transform" />
+                  <span className="group-hover:text-ink transition-colors">{it}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
