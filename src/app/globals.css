@@ -3,7 +3,7 @@
  * nav: N7 Brutal slab · footer: Ft1 Mast-headed · enrichment: none (typography only)
  * pre-emit critique: P5 H5 E4 S4 R4 V5
  */
-@import url('../tokens.css');
+@import url('./tokens.css');
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
 
 @tailwind base;

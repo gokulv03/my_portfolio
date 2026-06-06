@@ -1,20 +1,24 @@
-import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+'use client';
+
+import { useEffect, useState } from 'react';
+import { Menu, X } from 'lucide-react';
 
 const LINKS = [
-  { href: "#about", label: "About" },
-  { href: "#work", label: "Work" },
-  { href: "#experience", label: "Experience" },
-  { href: "#skills", label: "Skills" },
-  { href: "#contact", label: "Contact" },
+  { href: '#about', label: 'About' },
+  { href: '#work', label: 'Work' },
+  { href: '#experience', label: 'Experience' },
+  { href: '#skills', label: 'Skills' },
+  { href: '#contact', label: 'Contact' },
 ];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    document.body.style.overflow = open ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
   }, [open]);
 
   return (
@@ -50,7 +54,7 @@ export default function Navbar() {
           {/* Mobile trigger */}
           <button
             type="button"
-            aria-label={open ? "Close menu" : "Open menu"}
+            aria-label={open ? 'Close menu' : 'Open menu'}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
             className="lg:hidden inline-flex items-center justify-center w-11 h-11 border-2 border-ink text-ink hover:bg-ink hover:text-paper transition-colors"

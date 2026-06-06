@@ -1,16 +1,40 @@
-# React + Vite
+# Gokul Vemulapalli — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio built with **Next.js (App Router)**, **TypeScript**, and **Tailwind CSS**.
+Brutalist editorial design with a warm off-white palette, heavy grotesk + mono type, and a
+signal-vermilion accent. Migrated from a Vite + React (JSX) setup.
 
-Currently, two official plugins are available:
+## Tech stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- [Next.js 15](https://nextjs.org/) — App Router, static prerendering
+- TypeScript
+- Tailwind CSS 3 (design tokens in [`src/app/tokens.css`](src/app/tokens.css))
+- [Framer Motion](https://www.framer.com/motion/) for scroll/entry animation
+- [lucide-react](https://lucide.dev/) icons
 
-## React Compiler
+## Getting started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm install
+npm run dev      # start the dev server (http://localhost:3000)
+npm run build    # production build
+npm run start    # serve the production build
+npm run lint     # eslint (next/core-web-vitals)
+```
 
-## Expanding the ESLint configuration
+## Project structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```
+src/
+  app/
+    layout.tsx       # root layout + metadata
+    page.tsx         # home page (composes the sections)
+    globals.css      # global styles + Tailwind layers
+    tokens.css       # portable design tokens (CSS custom properties)
+  components/         # section components (Navbar, Hero, About, ...)
+public/              # static assets (images, icons)
+```
+
+> Note: the `src/components/*.jsx` atmospheric components (3D background, particles,
+> custom cursor, etc.) are unused reference code kept from the original design and are
+> excluded from linting. They can be removed if no longer needed.
